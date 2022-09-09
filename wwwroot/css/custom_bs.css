@@ -1,0 +1,13 @@
+.fsr-2{
+    font-size: 3em;
+}
+
+.mq-wrap{
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .mq-wrap{
+        flex-wrap: nowrap;
+    }
+  }
