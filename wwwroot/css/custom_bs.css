@@ -11,3 +11,39 @@
         flex-wrap: nowrap;
     }
   }
+
+  .lang{
+    width: 90px;
+    height: 90px;
+    font-size: 2.5rem;
+    transition: ease-in-out 0.2s;
+    filter: saturate(0);
+  }
+  
+  .lang:hover{
+    font-size: 3rem;
+    filter: saturate(1);
+  }
+
+  .project{
+    transform: scale(0.99);
+    transition: ease-in-out 0.3s;
+
+  }
+
+  .project:hover{
+    transform: scale(1);
+  }
+
+  .project-img-l{
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    width: 50vh;
+    height: 50vh;
+  }
+
+  .project-card{
+    margin-left: 30vh;
+  }
+  
