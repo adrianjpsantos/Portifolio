@@ -2,15 +2,37 @@ html {
   font-size: 14px;
 }
 
-#container {
-  margin: 20px;
-  width: 50px;
-  height: 50px;
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
 }
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--bs-primary);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */  /* creates padding around scroll thumb */
+}
+
+.desktop-nav{
+  display: none;
+}
+
+.mobile-nav-btn{
+  display: block;
+  position: absolute;
+  z-index: 2;
+}
+
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+  }
+
+  .desktop-nav{
+    display: flex;
+  }
+
+  .mobile-nav-btn{
+    display: none;
   }
   
 }

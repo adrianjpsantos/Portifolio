@@ -15,34 +15,73 @@
 
 <body class=" bg-light d-flex flex-column vh-100 m-0 p-0">
     <div class="d-flex flex-grow-1">
-        <aside class="d-flex flex-column position-relative" style="width:5.3rem ;">
-            <ul class="d-flex flex-column nav  position-fixed top-50 translate-middle-y">
-                <li class="nav-item p-3">
+        <a class="py-2 px-3 bg-primary rounded-bottom text-light mobile-nav-btn mx-5" data-bs-toggle="offcanvas"
+            href="#nav-off" role="button">
+            <i class="bi bi-grid-fill"></i>
+        </a>
+
+        <aside class="desktop-nav flex-column position-relative bg-light" style="width:5.3rem;">
+            <ul class="d-flex flex-column nav  position-fixed top-50 translate-middle-y bg-light rounded"
+                style="z-index:2;">
+                <li class="nav-item p-3 ">
                     <a class="nav-link" asp-controller="Home" asp-action="Index" data-bs-placement="right"
                         data-bs-toggle="tooltip" data-bs-title="Inicio">
                         <i class="bi bi-house-door-fill"></i>
                     </a>
                 </li>
                 <li class="nav-item p-3">
-                    <a class="nav-link" asp-controller="Home" asp-action="Skills" data-bs-placement="right" data-bs-toggle="tooltip"
-                        data-bs-title="Sobre Mim">
+                    <a class="nav-link" asp-controller="Home" asp-action="Skills" data-bs-placement="right"
+                        data-bs-toggle="tooltip" data-bs-title="Sobre Mim">
                         <i class="bi bi-diamond-fill"></i>
                     </a>
                 </li>
-                <li class="nav-item p-3 ">
-                    <a class="nav-link " asp-controller="Home" asp-action="Projects" data-bs-placement="right" data-bs-toggle="tooltip"
-                        data-bs-title="Projetos">
+                <li class="nav-item  p-3 ">
+                    <a class="nav-link" asp-controller="Home" asp-action="Projects" data-bs-placement="right"
+                        data-bs-toggle="tooltip" data-bs-title="Projetos">
                         <i class="bi bi-file-code-fill"></i>
                     </a>
                 </li>
-                <li class="nav-item p-3">
-                    <a class="nav-link" asp-controller="Blog" asp-action="Index" data-bs-placement="right" data-bs-toggle="tooltip"
-                        data-bs-title="Meu Blog">
+                <li class="nav-item  p-3">
+                    <a class="nav-link" asp-controller="Blog" asp-action="Index" data-bs-placement="right"
+                        data-bs-toggle="tooltip" data-bs-title="Meu Blog">
                         <i class="bi bi-chat-square-quote-fill"></i>
                     </a>
                 </li>
             </ul>
         </aside>
+
+        <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="nav-off">
+            <div class="offcanvas-body small">
+                <ul class="d-flex flex-column nav position-fixed top-50 translate-middle-y">
+                    <li class="nav-item p-3 ">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            <i class="bi bi-house-door-fill me-2"></i>Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a class="nav-link" asp-controller="Home" asp-action="Skills">
+                            <i class="bi bi-diamond-fill me-2"></i>Sobre mim
+                        </a>
+                    </li>
+                    <li class="nav-item  p-3 ">
+                        <a class="nav-link " asp-controller="Home" asp-action="Projects">
+                            <i class="bi bi-file-code-fill me-2"></i>Projetos
+                        </a>
+                    </li>
+                    <li class="nav-item  p-3">
+                        <a class="nav-link" asp-controller="Blog" asp-action="Index">
+                            <i class="bi bi-chat-square-quote-fill me-2"></i> Meu Blog
+                        </a>
+                    </li>
+                    <li class="nav-item p-3 ">
+                        <a class="nav-link text-danger " data-bs-dismiss="offcanvas" aria-label="Close">
+                            <i class="bi bi-x-square-fill me-2 "></i>Fechar Menu
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <main role="main" class="w-100">
             @RenderBody()
         </main>

@@ -1,15 +1,34 @@
 .fsr-2{
     font-size: 3em;
 }
+.projects{
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.projects img{
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 
 .mq-wrap{
     flex-wrap: wrap;
 }
 
+
+
 @media (min-width: 768px) {
     .mq-wrap{
         flex-wrap: nowrap;
     }
+
+    .projects{
+      display: grid;
+      grid-auto-flow: column;
+    }
+    
   }
 
   .lang{
@@ -25,25 +44,14 @@
     filter: saturate(1);
   }
 
-  .project{
-    transform: scale(0.99);
+  .scale-anim{
+    transform: scale(1);
     transition: ease-in-out 0.3s;
 
   }
 
-  .project:hover{
+  .scale-anim:hover{
     transform: scale(1);
   }
 
-  .project-img-l{
-    position: absolute;
-    z-index: -1;
-    object-fit: cover;
-    width: 50vh;
-    height: 50vh;
-  }
-
-  .project-card{
-    margin-left: 30vh;
-  }
   
