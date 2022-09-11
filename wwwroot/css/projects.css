@@ -1,0 +1,22 @@
+.project{
+  width: 100%;
+}
+
+.project img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-badge{
+    position: absolute;
+    right: 0ch;
+    writing-mode: vertical-lr;
+    height: 180px;
+}
+
+@media (min-width: 768px) {
+  .project{
+    width: calc((100% / 3) - 1rem);
+  }
+}

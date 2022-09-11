@@ -1,67 +1,34 @@
 @{
-    ViewData["Title"] = "Habilidades";
+    ViewData["Title"] = "Sobre Mim";
 }
 
-<div class="p-5 d-inline-flex align-items-center h-100 mq-wrap gap-4">
-    <div class="w-100 h-auto">
-        <h1 class="fade-in text-black text-uppercase">
+<div class="p-5 d-flex mq-wrap mq-h-100 gap-3">
+    <aside class="s-container">
+        <h1 class="fade-in  text-primary text-uppercase">
             Sobre Mim
         </h1>
-        <p class="fade-in text-start fs-6">Muito prazer! Meu nome é Adrian.<br>
-            Atualmente estou cursando desenvolvimento de sistemas na Etec
-            '<a class="link" href="https://www.linkedin.com/school/etec-comendador-joao-rays/"
-                target="_blank">Comendador João Rays </a>'.<br>
-            Sou apaixonado por desafios, tecnologia, viagens e cultura japonesa.<br>
-            Estou sempre trabalhando para me superar a cada dia, pois tudo é possível com dedicação e resiliência.
+        <p class="fade-in text-start fs-6">@ViewBag.Person.about
         </p>
-    </div>
-    <div class="d-flex flex-column align-items-start">
-        <h6 class="fade-in text-black text-uppercase">
+    </aside>
+    <div class="s-container">
+        <h6 class="fade-in text-primary text-uppercase">
             Habilidades
         </h6>
-        <aside class="fade-in d-flex flex-wrap fs-1 position-relative justify-content-start align-items-start top-0">
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-html5-plain-wordmark colored" data-bs-toggle="tooltip"
-                    data-bs-title="HTML"></i>
-            </div>
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-css3-plain-wordmark colored" data-bs-toggle="tooltip"
-                    data-bs-title="CSS"></i>
-            </div>
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-javascript-plain colored" data-bs-toggle="tooltip"
-                    data-bs-title="Javascript"></i>
-            </div>
+        <div class="d-flex flex-wrap">
 
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-typescript-plain colored" data-bs-toggle="tooltip"
-                    data-bs-title="Typescript"></i>
-            </div>
+            @foreach (var technology in ViewBag.technologies)
+            {
+                <div class="fade-in lang d-grid justify-content-center align-items-center">
+                    <i class="rounded shadow p-3 @technology.icon colored" data-bs-toggle="tooltip"
+                    data-bs-title="@technology.name"></i>
+                </div>
+            }
 
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-ionic-original colored" data-bs-toggle="tooltip"
-                    data-bs-title="Ionic"></i>
-            </div>
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-dot-net-plain-wordmark colored" data-bs-toggle="tooltip"
-                    data-bs-title=".Net"></i>
-            </div>
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-mysql-plain colored" data-bs-toggle="tooltip"
-                    data-bs-title="MySql"></i>
-            </div>
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-androidstudio-plain colored" data-bs-toggle="tooltip"
-                    data-bs-title="Android Studio"></i>
-            </div>
-            <div class="lang d-grid justify-content-center align-items-center">
-                <i class="rounded shadow p-3 devicon-firebase-plain-wordmark colored" data-bs-toggle="tooltip"
-                    data-bs-title="Google Firebase"></i>
-            </div>
-        </aside>
+        </div>
     </div>
 </div>
 
 @section Styles{
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<link rel="stylesheet" href="~/css/skills.css" asp-append-version=true>
 }

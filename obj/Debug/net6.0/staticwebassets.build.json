@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2jwiY5XuyX9AUa/O8+RWSAesEYvLN+MlB4zvWQgHNxg=",
+  "Hash": "dEZAcnci2atwqi7dwkUsRtKEjtWDrVOgRZlQWdB1azQ=",
   "Source": "Portifolio",
   "BasePath": "_content/Portifolio",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "D:\\dotnet\\Portifolio\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Portifolio.bundle.scp.css"
     },
     {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\createDb.sql",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "createDb.sql",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\createDb.sql"
+    },
+    {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\css\\custom_bs.css",
       "SourceId": "Portifolio",
       "SourceType": "Discovered",
@@ -68,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\css\\custom_bs.css"
     },
     {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\css\\projects.css",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "css/projects.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\projects.css"
+    },
+    {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\css\\site.css",
       "SourceId": "Portifolio",
       "SourceType": "Discovered",
@@ -83,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\css\\skills.css",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "css/skills.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\skills.css"
     },
     {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\favicon.ico",
@@ -168,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\eu.png"
+    },
+    {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\insertDb.sql",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "insertDb.sql",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\insertDb.sql"
     },
     {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\js\\onload.js",

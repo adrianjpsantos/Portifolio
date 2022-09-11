@@ -1,57 +1,6 @@
-.fsr-2{
-    font-size: 3em;
-}
-.projects{
-  display: grid;
-  grid-auto-flow: row;
-}
-
-.projects img{
-  max-width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-
-.mq-wrap{
-    flex-wrap: wrap;
-}
 
 
 
-@media (min-width: 768px) {
-    .mq-wrap{
-        flex-wrap: nowrap;
-    }
 
-    .projects{
-      display: grid;
-      grid-auto-flow: column;
-    }
-    
-  }
-
-  .lang{
-    width: 90px;
-    height: 90px;
-    font-size: 2.5rem;
-    transition: ease-in-out 0.2s;
-    filter: saturate(0);
-  }
-  
-  .lang:hover{
-    font-size: 3rem;
-    filter: saturate(1);
-  }
-
-  .scale-anim{
-    transform: scale(1);
-    transition: ease-in-out 0.3s;
-
-  }
-
-  .scale-anim:hover{
-    transform: scale(1);
-  }
 
   

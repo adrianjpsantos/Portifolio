@@ -1,0 +1,36 @@
+.s-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+}
+
+aside.s-container{
+    margin-top: 0;
+}
+
+.lang {
+  width: 90px;
+  height: 90px;
+  font-size: 2.5rem;
+  transition: ease-in-out 0.2s;
+  filter: saturate(0);
+}
+
+.lang:hover {
+  font-size: 3rem;
+  filter: saturate(1);
+}
+
+@media (min-width: 768px) {
+  .s-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+  }
+
+  aside.s-container{
+    margin-top: .25rem;
+}
+}
