@@ -10,19 +10,18 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/custom_bs.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Portifolio.styles.css" asp-append-version="true" />
-    @await RenderSectionAsync("Styles", required: false)
+    @await RenderSectionAsync("Styles", required: false);
 </head>
 
-<body class="bg-dark d-flex flex-column vh-100 m-0 p-0">
+<body class="bg-light text-dark d-flex flex-column vh-100 m-0 p-0">
     <div class="d-flex flex-grow-1">
-        <a class="py-2 px-3 bg-primary rounded-bottom text-light mobile-nav-btn mx-5" data-bs-toggle="offcanvas"
+        <a class="py-2 px-3 bg-primary rounded-bottom mobile-nav-btn mx-5" data-bs-toggle="offcanvas"
             href="#nav-off" role="button">
             <i class="bi bi-grid-fill"></i>
         </a>
 
         <aside class="desktop-nav flex-column position-relative" style="width:5.3rem;">
-            <ul class="d-flex flex-column nav  position-fixed top-50 translate-middle-y rounded"
-                style="z-index:2;">
+            <ul class="d-flex flex-column nav position-fixed top-50 translate-middle-y rounded" style="z-index:2;">
                 <li class="nav-item p-3 ">
                     <a class="nav-link" asp-controller="Home" asp-action="Index" data-bs-placement="right"
                         data-bs-toggle="tooltip" data-bs-title="Inicio">
@@ -36,7 +35,7 @@
                     </a>
                 </li>
                 <li class="nav-item  p-3 ">
-                    <a class="nav-link" asp-controller="Home" asp-action="Projects" data-bs-placement="right"
+                    <a class="nav-link" asp-controller="Project" asp-action="Index" data-bs-placement="right"
                         data-bs-toggle="tooltip" data-bs-title="Projetos">
                         <i class="bi bi-file-code-fill"></i>
                     </a>
@@ -50,7 +49,7 @@
             </ul>
         </aside>
 
-        <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="nav-off">
+        <div class="offcanvas offcanvas-start " tabindex="-1" id="nav-off">
             <div class="offcanvas-body small">
                 <ul class="d-flex flex-column nav position-fixed top-50 translate-middle-y">
                     <li class="nav-item p-3 ">
@@ -64,7 +63,7 @@
                         </a>
                     </li>
                     <li class="nav-item  p-3 ">
-                        <a class="nav-link " asp-controller="Home" asp-action="Projects">
+                        <a class="nav-link " asp-controller="Project" asp-action="Index">
                             <i class="bi bi-file-code-fill me-2"></i>Projetos
                         </a>
                     </li>
@@ -82,19 +81,19 @@
             </div>
         </div>
 
-        <main role="main" class="w-100 text-dark">
+        <main role="main" class="w-100">
             @RenderBody()
         </main>
     </div>
     <footer class="footer position-fixed bottom-0">
-        <div class="container bg-light p-2">
-            <span class="text-dark">&copy; 2022 - Adrian José - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
+        <div class="container bg-primary text-white p-2">
+            &copy; 2022 - Adrian José
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false);
 </body>
 
 </html>

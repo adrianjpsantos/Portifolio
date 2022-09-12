@@ -10,26 +10,25 @@ let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 });
 
 function changeToDarkMode() {
-  let elementsLight = document.getElementsByClassName('bg-light');
-  let elementsDark = document.getElementsByClassName('bg-light');
-  let elementsTextDark = document.getElementsByClassName('text-dark');
-  let elementsTextLight = document.getElementsByClassName('text-light');
+  let bg = document.getElementsByClassName('bg-light');
+  let txt = document.getElementsByClassName('text-dark');
+  let icons = document.getElementsByTagName("i");
 
+  console.log(bg);
 
-  for (let i = 0; i < elementsLight.length; i++){
-    elementsLight[i].classList.replace('bg-light', 'bg-dark');
+  for (let i = 0; i < bg.length;i++){
+    bg[i].classList.replace('bg-light', 'bg-dark');
   }
-  for (let i = 0; i < elementsDark.length; i++){
-    elementsDark[i].classList.replace('bg-dark', 'bg-light');
-  }
-  
-  for (let i = 0; i < elementsTextDark.length; i++){
-    elementsTextDark[i].classList.replace('text-dark', 'text-light');
+  for (let i = 0; i < txt.length;i++){
+   txt[i].classList.replace('text-dark','text-light');
   }
 
-  for (let i = 0; i < elementsTextLight.length; i++){
-    elementsTextLight[i].classList.replace('text-light', 'text-dark');
+  for (let i = 0; i < icons.length; i++) {
+    if (icons[i].classList.contains('text-dark'))
+      icons[i].classList.replace('text-dark', 'text-light');
   }
+
+  console.log(bg);
 }
 
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
