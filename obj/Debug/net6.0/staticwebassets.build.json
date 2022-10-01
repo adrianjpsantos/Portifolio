@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dEZAcnci2atwqi7dwkUsRtKEjtWDrVOgRZlQWdB1azQ=",
+  "Hash": "jMXn3k1XYNJQSKuw7FfARqc45Nk35fnS3mcSC0mK+uE=",
   "Source": "Portifolio",
   "BasePath": "_content/Portifolio",
   "Mode": "Default",
@@ -68,12 +68,12 @@
       "OriginalItemSpec": "wwwroot\\createDb.sql"
     },
     {
-      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\css\\custom_bs.css",
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\css\\color.css",
       "SourceId": "Portifolio",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
       "BasePath": "_content/Portifolio",
-      "RelativePath": "css/custom_bs.css",
+      "RelativePath": "css/color.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,7 +82,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\custom_bs.css"
+      "OriginalItemSpec": "wwwroot\\css\\color.css"
     },
     {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\css\\projects.css",
@@ -236,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\insertDb.sql"
+    },
+    {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\js\\darkmode.js",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "js/darkmode.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\darkmode.js"
     },
     {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\js\\onload.js",

@@ -1,0 +1,35 @@
+@model Portifolio.ViewsModels.Login
+@{
+    ViewData["Title"] = "Admin Login";
+}
+<div class="h-100 text-center d-grid justify-items-center align-items-center bg-site">
+    <div class="form-signin w-100 m-auto ">
+        <form method="post">
+            <img class="mb-4" src="~/img/aj.svg" alt="adrian josé" height="57">
+            <h1 class="h3 mb-3 fw-normal">Faça login.</h1>
+            <div>               
+                <label asp-for="email" class="form-input"></label>
+                <input asp-for="email" class="form-control">
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div>               
+                <label asp-for="password" class="form-input"></label>
+                <input asp-for="password" class="form-control">
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+
+            <div class="checkbox m-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Lembre-se de mim.
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .form-signin {
+        max-width: 330px;
+    }
+</style>

@@ -1,4 +1,3 @@
-@model ViewsInfo;
 @{
     ViewData["Title"] = "Projetos";
 }
@@ -7,7 +6,7 @@
     <h1 class="fade-in text-primary text-uppercase mt-1">Projetos</h1>
     <p>Projetos concluidos e em andamento...</p>
     <div class="d-flex flex-wrap gap-4">
-        <article class="project card bg-light shadow border-0 d-flex flex-wrap position-relative">
+        <article class="project card shadow border-0 d-flex flex-wrap position-relative">
             <p class="project-badge rounded-bottom p-1 bg-success text-light fs-6 fw-bold text-uppercase">concluido</p>
             <img class="rounded-top"
                 src="https://cdn.sanity.io/images/81pocpw8/production/362d333b7dccf29155490c6a383a35c553eea278-3784x1791.png"
@@ -75,7 +74,7 @@
             <img class="rounded-top"
                 src="https://cdn.sanity.io/images/81pocpw8/production/362d333b7dccf29155490c6a383a35c553eea278-3784x1791.png"
                 alt="">
-            <main class="p-3 bg-light">
+            <main asp-controller="Project" asp-action="Project" method="post" class="p-3 bg-light">
                 <h3 class="h4">Titulo</h3>
                 <h5 class="h6">Sub titulo</h5>
                 <p class="fw-light fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi rem assumenda
@@ -84,12 +83,11 @@
                     repellat consectetur error consequuntur voluptas neque autem? Aperiam in ipsa iure soluta, pariatur
                     aliquid
                     mollitia.</p>
-                <form method="post">
-                    <input asp-for="idProject" class="form-control" value="Iden">
-                    <button type="submit" class="btn btn-primary btn-sm">Saiba mais</button>
+                <main>
+                    <button class="btn btn-primary btn-sm" onclick="getProject(123)" >Saber mais</button> 
                     <button class="btn btn-light border btn-sm">Visualizar <i
                             class="bi bi-box-arrow-up-right"></i></button>
-                </form>
+                </main>
             </main>
         </article>
     </div>
@@ -97,4 +95,14 @@
 
 @section Styles{
 <link rel="stylesheet" href="~/css/projects.css" asp-append-version=true>
+}
+
+@section Scripts{
+    <script src="~/js/darkmode.js"></script>
+
+    <script>
+        function getProject(id){
+            window.location = `@Url.Action("Project","Project")?id=${id}`;
+        }
+    </script>
 }

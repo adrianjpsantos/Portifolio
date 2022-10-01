@@ -15,4 +15,5 @@ function TypedText(container,text) {
     }
   
     frameLooper();
-  }
+}
+  

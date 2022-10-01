@@ -1,3 +1,27 @@
+/* _content/Portifolio/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+*[b-r4e1mwxhfi]{
+  box-sizing: border-box;
+}
+
+footer>div[b-r4e1mwxhfi]{
+  border-radius: 0 10px 0 0;
+}
+
+.nav-item[b-r4e1mwxhfi]{
+  border-radius: 0 5px 5px 0;
+}
+
+.nav-item:hover[b-r4e1mwxhfi]{
+  background-color: #383d41 ;
+  
+}
+
+
+.nav-link[b-r4e1mwxhfi]{
+  color: white;
+}
 /* _content/Portifolio/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */

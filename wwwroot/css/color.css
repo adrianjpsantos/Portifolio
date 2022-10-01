@@ -1,0 +1,14 @@
+.bg-site{
+    background: #f8f9fa;
+  }
+  
+  @media(prefers-color-schema: light) {
+    .bg-site {
+      background: #212529 !important;
+    }
+  }
+
+
+
+
+  

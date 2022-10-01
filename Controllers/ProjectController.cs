@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Portifolio.Data;
 using Portifolio.Models;
@@ -18,30 +14,18 @@ namespace Portifolio.Controllers
             _context = context;
         }
 
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Index(ViewsInfo info)
+        public IActionResult Project(int id)
         {
-            //TempData["ProjectInfo"] = _context.projects?.ToList().DistinctBy(p => p.idProject == info.idProject);
+            
             Project project = new();
-            project.idProject = info.idProject;
+            project.idProject = id;
             project.title = "Projeto de teste";
-
-            ViewData["ProjectInfo"] = project;
-            return Redirect("/Project/Project");
-        }
-
-
-        public IActionResult Project()
-        {
-            Project? project = ViewData["ProjectInfo"] as Project;
-            ViewData["Title"] = project?.title + project?.idProject;
-            return View();
+            return View(project);
         }
     }
 }
