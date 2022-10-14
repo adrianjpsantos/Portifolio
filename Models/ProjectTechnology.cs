@@ -7,15 +7,15 @@ namespace Portifolio.Models
     public class ProjectTechnology
     {
         [Key, Column(Order = 1)]
-        public int idProject { get; set; }
+        public int IdProject { get; set; }
 
-        [ForeignKey("idProject")]
-        public Project project { get; set; } = new();
+        [ForeignKey("IdProject")]
+        public Project? Project { get; set; }
 
         [Key, Column(Order = 2)]
-        public int idTechnology { get; set; }
+        public int IdTechnology { get; set; }
 
-        [ForeignKey("idTechnology")]
-        public Technology technology { get; set; } = new();
+        [ForeignKey("IdTechnology")]
+        public Technology? Technology { get; set; }
     }
 }

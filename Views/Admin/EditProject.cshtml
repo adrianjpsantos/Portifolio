@@ -1,0 +1,89 @@
+@model Project
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Editar Projeto -";
+}
+
+<div class="p-5">
+    <h1>@ViewBag.Title @Model.IdProject</h1>
+    <form asp-action="EditProject" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="IdProject" />
+        <div class="row mb-3">
+            <div class="col-4">
+                <label class="form-label" asp-for="Title"></label>
+                <input class="form-control" asp-for="Title">
+                <span asp-validation-for="Title" class="text-info text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label class="form-label" asp-for="SubTitle"></label>
+                <input class="form-control" asp-for="SubTitle">
+                <span asp-validation-for="SubTitle" class="text-info text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label class="form-label"></label>
+                <div class="form-control mt-2">
+                    <input class="form-check-input" asp-for="Finish">
+                    <label class="form-check-label" asp-for="Finish"></label>
+                </div>
+                <span asp-validation-for="Finish" class="text-info text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-10">
+                <label class="form-label" asp-for="Description"></label>
+                <textarea rows="5" class="form-control" asp-for="Description"></textarea>
+                <span asp-validation-for="Description" class="text-info text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label class="form-label">Tecnologias Usadas</label>
+                <select class="form-select" size="5" asp-items="ViewBag.Technologies" name="SelectTechnologies"
+                    id="SelectTechnologies" multiple>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Thumbnail"></label>
+            <input type="file" name="file" class="form-control" accept=".jpg,.jpeg,.png,.gif,.jfif" />
+            <span asp-validation-for="Thumbnail" class="text-info text-danger"></span>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <label class="form-label" asp-for="UrlSource"></label>
+                <input class="form-control" asp-for="UrlSource">
+                <span asp-validation-for="UrlSource" class="text-info text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label class="form-label" asp-for="UrlDemo"></label>
+                <input class="form-control" asp-for="UrlDemo">
+                <span asp-validation-for="UrlDemo" class="text-info text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Salvar Projeto" class="btn btn-success" />
+        </div>
+    </form>
+</div>
+
+@section Styles{
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<link rel="stylesheet" href="~/css/skills.css" asp-append-version=true>
+}
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<script>
+    tinymce.init({
+        selector: 'textarea#Description',
+        language: 'pt_BR',
+        plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+            'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+            'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ],
+    });
+</script>
+}

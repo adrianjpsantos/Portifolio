@@ -10,36 +10,38 @@ namespace Portifolio.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int idProject { get; set; }
+        public int IdProject { get; set; }
 
         [Display(Name = "Titulo do Projeto")]
         [Required(ErrorMessage = "Informe o Titulo")]
         [StringLength(60, ErrorMessage = "O Titulo deve possuir no máximo 60 caracteres.")]
-        public string title { get; set; } = String.Empty;
+        public string Title { get; set; } = string.Empty;
 
-        public string? subTitle { get; set; }
+        [Display(Name = "Subtitulo do Projeto")]
+        [StringLength(200, ErrorMessage = "O Titulo deve possuir no máximo 200 caracteres.")]
+        public string? SubTitle { get; set; }
 
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "Informe a descrição do projeto")]
         [StringLength(2000, ErrorMessage = "A Descrição deve possuir no máximo 1000 caracteres")]
-        public string description { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
 
         [Display(Name = "Thumbnail")]
-        [Required(ErrorMessage = "Escolha uma image")]
-        [StringLength(2000, ErrorMessage = "A Descrição deve possuir no máximo 1000 caracteres")]
-        public string thumbnail { get; set; } = string.Empty;
-
+        [StringLength(200, ErrorMessage = "A Descrição deve possuir no máximo 200 caracteres")]
+        public string Thumbnail { get; set; } = string.Empty;
+        
+        [Display(Name = "Projeto Concluido")]
         [Required(ErrorMessage = "Informe se o projeto está concluido")]
-        public bool finish { get; set; } = false;
+        public bool Finish { get; set; } = false;
 
         [Display(Name = "Link github")]
-        public string? urlSource { get; set; }
+        public string? UrlSource { get; set; }
 
         [Display(Name = "Link para visualização")]
-        public string? urlDemo { get; set; }
+        public string? UrlDemo { get; set; }
 
         
-        public ICollection<ProjectTechnology> technologies { get; set; } = new List<ProjectTechnology>();
+        public ICollection<ProjectTechnology> Technologies { get; set; } = new List<ProjectTechnology>();
 
     }
 }

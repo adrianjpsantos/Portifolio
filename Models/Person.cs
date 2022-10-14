@@ -8,20 +8,21 @@ namespace Portifolio.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int idPerson{ get; set; }
+        public int IdPerson { get; set; }
 
-        [Display(Name ="Nome")]
+        [Display(Name = "Nome")]
         [Required(ErrorMessage = "Digite um nome")]
-        [StringLength(60,ErrorMessage = "O Nome deve ter no maximo 60 caracteres")]
-        public string name { get; set; } = string.Empty;
+        [StringLength(60, ErrorMessage = "O Nome deve ter no maximo 60 caracteres")]
+        public string Name { get; set; } = string.Empty;
 
         [Display(Name = "Sobre Mim")]
         [Required(ErrorMessage = "Digite o sobre mim")]
         [StringLength(1000, ErrorMessage = "O Sobre mim deve ter no maximo 1000 caracteres")]
-        public string about { get; set; } = string.Empty;
+        public string About { get; set; } = string.Empty;
 
-        public string? urlLinkedin{ get; set; }
-        public string? urlGithub{ get; set; }
-        public string? emailAddress{ get; set; }
+        public string? UrlLinkedin { get; set; }
+        public string? UrlGithub { get; set; }
+        public string? Username { get; set; }
+        public string? Password { get; set; }
     }
 }

@@ -1,0 +1,163 @@
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Home";
+}
+
+<div class="p-5">
+    <div class="row align-items-center rounded mb-5 bg-secondary text-sm-center text-md-end">
+        <div class="col-lg-9 col-sm-7 text-white">
+            <h6>Seja bem vindo,</h6>
+            <h1>Adrian José</h1>
+        </div>
+        <div class="col-lg-3 col-sm-5 p-5">
+            <img class="col-12" src="~/img/profile.png" alt="">
+        </div>
+    </div>
+    <div class="row align-items-center mb-5">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Suas Habilidades</h2>
+                <a class="btn btn-success" asp-controller="Admin" asp-action="NewTechnology">Nova Tecnologia</a>
+            </div>
+
+            <table class="table table-striped align-middle m-0">
+                <tbody>
+                    @foreach (var technology in ViewBag.Technologies)
+                    {
+                        <tr class="">
+                            <th scope="row">@technology.IdTechnology</th>
+                            <td><i class="rounded fs-1 @technology.Icon"></i></td>
+                            <td>@technology.Name</td>
+                            <td>@technology.Icon</td>
+                            <td class="text-end">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a href="EditTechnology?id=@technology.IdTechnology"class="btn btn-warning" data-bs-toggle="tooltip" data-bs-title="Editar">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-trash"
+                                    data-bs-whatever="Habilidade em @technology.Name" data-bs-type="Technology"
+                                    data-bs-id="@technology.IdTechnology">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2">
+
+        </div>
+    </div>
+
+    <div class="row align-items-center mb-5">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Seus Projetos</h2>
+                <a class="btn btn-success" asp-controller="Admin" asp-action="NewProject">Novo Projeto</a>
+            </div>
+            <table class="table table-striped align-middle m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Thumbnail</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Url Source</th>
+                        <th scope="col">Url Demo</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var project in ViewBag.Projects)
+                    {
+                        <tr>
+                            <th scope="row">@project.IdProject</th>
+                            <td><img class="rounded" src="@project.Thumbnail" height="50px" width="80px"
+                                alt="Project Image"></td>
+                            <td>@project.Title</td>
+                            <td>@project.Description</td>
+                            <td>@project.UrlSource</td>
+                            <td>@project.UrlDemo</td>
+                            <td class="text-end">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a href="EditProject?id=@project.IdProject" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-title="Editar">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-trash"
+                                    data-bs-whatever="Projeto @project.Title" data-bs-type="Project"
+                                    data-bs-id="@project.IdProject">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Modal{
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-trash">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="border-bottom-0 text-center my-3">
+                <h1 class="modal-title fs-3">Confirme</h1>
+            </div>
+            <div class="modal-body py-0 text-center fs-5">
+                <p>Deseja Realmente Deletar<br><span class="modal-span text-danger fw-bold"></span> ?</p>
+            </div>
+            <form id="form-modal" class="modal-footer flex-column border-top-0" method="post">
+                <input name="id" id="id" type="hidden" value="">
+                <button type="submit" class="btn-delete btn btn-lg btn-danger w-100 mx-0 mb-2">Confirmar</button>
+                <a type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Close</a>
+            </form>
+        </div>
+    </div>
+</div>
+}
+
+
+
+@section Styles{
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<link rel="stylesheet" href="~/css/skills.css" asp-append-version=true>
+}
+
+@section Scripts{
+<script>
+    //Modal
+    const trashModal = document.getElementById('modal-trash')
+    trashModal.addEventListener('show.bs.modal', event => {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+        // Extract info from data-bs-* attributes
+        const recipient = button.getAttribute('data-bs-whatever');
+        const itemType = button.getAttribute('data-bs-type');
+        const itemId = button.getAttribute('data-bs-id');
+        const inputValue = document.getElementById('id');
+        const form = document.getElementById('form-modal');
+
+        if (itemType == 'Project')
+            form.action = '/Admin/DeleteProject';
+        else
+            form.action = '/Admin/DeleteTechnology';
+
+        inputValue.value = itemId;
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        const modalSpan = trashModal.querySelector('.modal-body p span');
+
+        modalSpan.textContent = `${recipient}`
+    });
+</script>
+}

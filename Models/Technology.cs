@@ -8,28 +8,20 @@ namespace Portifolio.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int idTechnology { get; set;}
+        public int IdTechnology { get; set;}
 
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "Por favor, Informe o Nome da Tecnologia")]
         [StringLength(30, ErrorMessage = "O Nome deve possuir no máximo 30 caracteres")]
-        public string name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
-        [Display(Name = "Icone")]
+        [Display(Name = "Icone",Prompt = "Classe do icone na devicon.dev")]
         [Required(ErrorMessage = "Por favor, Informe o Icone da Tecnologia")]
-        [StringLength(30, ErrorMessage = "O Icone deve possuir no máximo 30 caracteres")]
-        public string icon { get; set; } = string.Empty;
+        [StringLength(50, ErrorMessage = "O Icone deve possuir no máximo 50 caracteres")]
+        public string? Icon { get; set; }
 
-        public ICollection<ProjectTechnology> projectsWithTechnology { get; set; } = new List<ProjectTechnology>();
+        public ICollection<ProjectTechnology> ProjectsWithTechnology { get; set; } = new List<ProjectTechnology>();
 
-        public Technology(){
-
-        }
-
-        public Technology(string name,string icon){
-            this.name = name;
-            this.icon = icon;
-        }
     }
 
 }

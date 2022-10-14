@@ -1,0 +1,36 @@
+@model Person
+@{
+    ViewData["Title"] = "Sobre Mim";
+}
+<div class="p-5 h-100">
+    <div class="row h-100 align-items-lg-center">
+    <aside class="col-lg-6">
+        <h1 class="fade-in  text-primary text-uppercase">
+            Sobre Mim
+        </h1>
+        <p class="fade-in text-start fs-6">@Model.About
+        </p>
+    </aside>
+    <div class="col-lg-6">
+        <h6 class="fade-in text-primary text-uppercase">
+            Habilidades
+        </h6>
+        <div class="d-flex flex-wrap">
+
+            @foreach (var technology in ViewBag.technologies)
+            {
+                <div class="fade-in lang d-grid justify-content-center align-items-center">
+                    <i class="rounded shadow p-3 @technology.Icon colored" data-bs-toggle="tooltip"
+                    data-bs-title="@technology.Name"></i>
+                </div>
+            }
+
+        </div>
+    </div>
+    </div>
+</div>
+
+@section Styles{
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<link rel="stylesheet" href="~/css/skills.css" asp-append-version=true>
+}

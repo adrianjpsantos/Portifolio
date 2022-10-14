@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Portifolio.Data;
 using Portifolio.Models;
-using Portifolio.ViewsModels;
 
 namespace Portifolio.Controllers;
 
@@ -27,28 +26,13 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Skills()
+    public IActionResult About()
     {
-        ViewData["Person"] = _context.persons?.ToList()[0];
-        ViewData["Technologies"] = _context.technologies?.ToList();
-        return View();
+        var person = _context.Persons?.ToList().First();
+        ViewData["Technologies"] = _context.Technologies?.ToList();
+        return View(person);
     }
 
-    [HttpGet]
-    public IActionResult Login()
-    {
-        ViewData["Person"] = _context.persons?.ToList()[0];
-        ViewData["Technologies"] = _context.technologies?.ToList();
-        return View();
-    }
-
-    [HttpPost]
-    public IActionResult Login(Login login)
-    {
-        var l = login;
-        l.email = "adr@adr.com";
-        return View(l);
-    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

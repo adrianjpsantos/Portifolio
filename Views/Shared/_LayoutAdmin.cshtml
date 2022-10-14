@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aj Administração, @ViewData["Title"].</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/animations.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body class="mw-100 px-5">
+    <div class="row bg-secondary px-5 rounded-bottom">
+        <nav class="navbar navbar-expand">
+            <div class="d-flex w-100 justify-content-between">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav gap-2">
+                        <a class="btn btn-secondary" aria-current="page" asp-action="Home">Inicio</a>
+                        <a class="btn btn-secondary" href="#">Analistics</a>
+                    </div>
+                </div>
+                <a class="btn btn-outline-light" asp-action="Logoff"><i class="bi bi-box-arrow-left me-1"></i>Logoff</a>
+            </div>
+        </nav>
+    </div>
+    <div class="d-flex flex-column align-content-center">
+        @RenderBody()
+    </div>
+
+    @await RenderSectionAsync("Modal",required: false);
+    
+    <script src="~/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

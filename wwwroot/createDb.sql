@@ -1,33 +1,34 @@
 create database Portifolio;
 use Portifolio;
 create table if not exists Person(
-	idPerson int auto_increment primary key,
-    name varchar(60) not null,
-    about varchar(1000) not null,
-    urlLinkedin varchar(60),
-    urlGithub varchar(60),
-    emailAddress varchar(60)
+	IdPerson int auto_increment primary key,
+    Name varchar(60) not null,
+    About varchar(1000) not null,
+    UrlLinkedin varchar(60),
+    UrlGithub varchar(60),
+    Username varchar(30) not null,
+    Password varchar(30) not null
 );
 
 create table if not exists Technology(
-	idTechnology int auto_increment primary key,
-    name varchar(30) not null unique,
-    icon varchar(60) not null
+	IdTechnology int auto_increment primary key,
+    Name varchar(30) not null unique,
+    Icon varchar(60) not null
 );
 
 create table if not exists Project(
-	idProject int auto_increment primary key,
-    title varchar(60) not null,
-    subtitle varchar(60),
-    description varchar(2000) not null,
-    thumbnail varchar(2000) not null,
-    finish bool default true,
-    urlSource varchar(60),
-    urlDemo varchar(60)
+	IdProject int auto_increment primary key,
+    Title varchar(60) not null,
+    Subtitle varchar(200),
+    Description varchar(2000) not null,
+    Thumbnail varchar(200) ,
+    Finish bool default false,
+    UrlSource varchar(60),
+    UrlDemo varchar(60)
 );
 
 create table if not exists ProjectTechnology(
-	idProject int not null,
+	IdProject int not null,
     idTechnology int not null,
     primary key(idProject,idTechnology)
 );
