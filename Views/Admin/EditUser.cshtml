@@ -1,0 +1,77 @@
+@model User
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Editar Usuario e Senha";
+}
+
+<div class="p-5">
+    <h1>@ViewBag.Title</h1>
+    <form asp-action="EditUser">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" >
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="form-group mb-3">
+                    <label class="form-label" asp-for="Username"></label>
+                    <input class="form-control" asp-for="Username">
+                    <span asp-validation-for="Username" class="text-info text-danger"></span>
+                </div>
+                
+            </div>
+            <div class="col-6">
+               <div class="form-group mb-3">
+                    <label class="form-label" asp-for="Password"></label>
+                    <input class="form-control" asp-for="Password">
+                    <span asp-validation-for="Password" class="text-info text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Confirme Senha</label>
+                    <input type="password" class="form-control" id="confirm-pass" onkeyup="checkPassword(this.value)">
+                    <span id="validation-confirm-pass" class="text-info text-danger"></span>
+                </div>
+            </div>
+            <div class="col-2 mt-3">
+                    <input type="submit" value="Salvar Usuario e Senha" class="btn btn-success" />
+                </div>
+        </div>
+    </form>
+</div>
+
+@section Styles{
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<link rel="stylesheet" href="~/css/skills.css" asp-append-version=true>
+}
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<script>
+    document.querySelector('.btn-success').disabled = true;
+
+    tinymce.init({
+        selector: 'textarea#About',
+        language: 'pt_BR',
+        plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+            'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+            'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ],
+    });
+
+
+    function checkPassword(){
+        const passInput = document.getElementById('Password');
+        const confirmInput = document.getElementById('confirm-pass')
+        if(passInput.value !== confirmInput.value){
+            document.getElementById('validation-confirm-pass').textContent = "Senhas não são iguais!!";
+        }else{
+            document.querySelector('.btn-success').disabled = false;
+            document.getElementById('validation-confirm-pass').textContent = "";
+        }
+    }
+    
+</script>
+}

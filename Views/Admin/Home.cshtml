@@ -1,13 +1,18 @@
 @{
     Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Inicio";
 }
 
 <div class="p-5">
     <div class="row align-items-center rounded mb-5 bg-secondary text-sm-center text-md-end">
         <div class="col-lg-9 col-sm-7 text-white">
             <h6>Seja bem vindo,</h6>
-            <h1>Adrian José</h1>
+            <h1>@ViewBag.Name</h1>
+            <div>
+                <a class="btn btn-sm btn-light" asp-controller="Admin" asp-action="EditProfile">Editar Perfil</a>
+                <a class="btn btn-sm btn-dark" asp-controller="Admin" asp-action="EditUser">Editar Senha</a>
+            </div>
+
         </div>
         <div class="col-lg-3 col-sm-5 p-5">
             <img class="col-12" src="~/img/profile.png" alt="">
@@ -31,7 +36,8 @@
                             <td>@technology.Icon</td>
                             <td class="text-end">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="EditTechnology?id=@technology.IdTechnology"class="btn btn-warning" data-bs-toggle="tooltip" data-bs-title="Editar">
+                                    <a href="EditTechnology?id=@technology.IdTechnology" class="btn btn-warning"
+                                    data-bs-toggle="tooltip" data-bs-title="Editar">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-trash"
@@ -84,7 +90,8 @@
                             <td>@project.UrlDemo</td>
                             <td class="text-end">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="EditProject?id=@project.IdProject" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-title="Editar">
+                                    <a href="EditProject?id=@project.IdProject" class="btn btn-warning"
+                                    data-bs-toggle="tooltip" data-bs-title="Editar">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-trash"

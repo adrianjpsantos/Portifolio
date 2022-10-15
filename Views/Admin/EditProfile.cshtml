@@ -1,0 +1,79 @@
+@model Profile
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Editar Perfil";
+}
+
+<div class="p-5">
+    <h1>@ViewBag.Title</h1>
+    <form asp-action="EditProfile" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" >
+        <div class="row mb-3">
+            <div class="col-8">
+                <div class="form-group mb-3">
+                    <label class="form-label" asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name" class="text-info text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label" asp-for="About"></label>
+                    <textarea rows="5" class="form-control" asp-for="About"></textarea>
+                    <span asp-validation-for="About" class="text-info text-danger"></span>
+                </div>
+                <div class="col-2 mt-3">
+                    <input type="submit" value="Salvar Perfil" class="btn btn-success" />
+                </div>
+            </div>
+            <div class="col-4">
+               <div class="form-group mb-3">
+                    <label class="form-label" asp-for="UrlGithub"></label>
+                    <input class="form-control" asp-for="UrlGithub">
+                    <span asp-validation-for="UrlGithub" class="text-info text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label" asp-for="UrlLinkedin"></label>
+                    <input class="form-control" asp-for="UrlLinkedin">
+                    <span asp-validation-for="UrlLinkedin" class="text-info text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Styles{
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<link rel="stylesheet" href="~/css/skills.css" asp-append-version=true>
+}
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<script>
+
+    function changedInputClass() {
+        let inputClass = document.getElementById("Icon");
+        let texts = inputClass.value.split(' ');
+        let preview = document.getElementById("preview-icon");
+
+        preview.removeAttribute('class');
+        
+        texts.forEach(value => {
+            preview.classList.add(value);
+        });
+    }
+
+</script>
+<script>
+    tinymce.init({
+        selector: 'textarea#About',
+        language: 'pt_BR',
+        plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+            'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+            'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ],
+    });
+</script>
+}

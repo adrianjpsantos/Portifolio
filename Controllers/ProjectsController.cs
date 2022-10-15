@@ -1,4 +1,6 @@
+
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portifolio.Data;
 using Portifolio.Models;
 
@@ -16,7 +18,7 @@ namespace Portifolio.Controllers
 
         public IActionResult Index()
         {
-            var projects = _context.Projects?.ToList();
+            var projects = _context.Projects.OrderBy(p => p.IdProject).Include(p => p.Technologies).ThenInclude(t => t.Technology).ToList();
             return View(projects);
         }
 

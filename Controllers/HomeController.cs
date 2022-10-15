@@ -18,7 +18,9 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        var profile = new Profile();
+        profile.SetPerson(_context.Persons?.First());
+        return View(profile);
     }
 
     public IActionResult Privacy()
@@ -28,9 +30,11 @@ public class HomeController : Controller
 
     public IActionResult About()
     {
-        var person = _context.Persons?.ToList().First();
+        var profile = new Profile();
+        profile.SetPerson(_context.Persons?.First());
+
         ViewData["Technologies"] = _context.Technologies?.ToList();
-        return View(person);
+        return View(profile);
     }
 
 

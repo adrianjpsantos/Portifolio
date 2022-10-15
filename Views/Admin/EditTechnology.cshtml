@@ -1,11 +1,11 @@
 @model Technology
 @{
     Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Novo Projeto";
+    ViewData["Title"] = "Editar Tecnologia -";
 }
 
 <div class="p-5">
-    <h1>Editar Tecnologia - @Model.IdTechnology</h1>
+    <h1>@ViewBag.Title @Model.IdTechnology</h1>
     <form asp-action="EditTechnology" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="IdTechnology" >

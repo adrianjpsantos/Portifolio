@@ -12,14 +12,14 @@
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
-<body class="bg-light text-dark d-flex flex-column vh-100 m-0 p-0 justify-content-center mw-100">
+<body class="bg-secondary text-dark d-flex flex-column vh-100 m-0 p-0 justify-content-center mw-100">
     <main role="main" class="w-100 container">
         @RenderBody()
     </main>
 
     <footer class="footer position-fixed bottom-0">
-        <div class="container bg-transparent text-success p-2 ms-2 rounded-top shadow" style="backdrop-filter: blur(10px);">
-            &copy; 2022 - Adrian José
+        <div class="container bg-light text-secondary p-2 ms-2 rounded-top shadow">
+            &copy; 2022 - Adrian José, <a class="link-secondary" asp-action="Privacy" target="_blank">Privacidade</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

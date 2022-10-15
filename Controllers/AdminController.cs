@@ -36,11 +36,11 @@ namespace Portifolio.Controllers
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Login(User user)
         {
-            var person = _context.Persons?.Where(p => p.Username.ToUpper() == user.Username.ToUpper() && p.Password == user.Password).FirstOrDefault();
+            var person = _context.Persons?.Where(p => p.Username.ToUpper() == user.Username.ToUpper() && p.Password == user.Password).First();
             if (person == null)
             {
                 TempData["Erro Login"] = "Usuario e/ou senha estão incorretos!";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
 
@@ -62,6 +62,7 @@ namespace Portifolio.Controllers
         {
             ViewData["Projects"] = _context.Projects?.ToList();
             ViewData["Technologies"] = _context.Technologies?.ToList();
+            ViewData["Name"] = _context.Persons?.First().Name;
             return View();
         }
 
@@ -284,6 +285,62 @@ namespace Portifolio.Controllers
 
         }
 
+
+        public IActionResult EditProfile()
+        {
+            var person = _context.Persons?.First();
+            if (person == null)
+                return NotFound();
+
+            var profile = new Profile();
+            profile.SetPerson(person);
+
+            return View(profile);
+        }
+
+        [HttpPost, Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProfile(Profile profile)
+        {
+            if (ModelState.IsValid)
+            {
+                var person = _context.Persons?.First();
+                if (person.IdPerson == profile.Id)
+                {
+                    person.UpdatePerson(profile);
+                }
+
+                _context.Persons?.Update(person);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Home));
+            }
+
+            return View(profile);
+        }
+
+        [HttpGet, Authorize]
+        public IActionResult EditUser()
+        {
+
+            var user = new User();
+            user.SetPerson(_context.Persons?.First());
+            return View(user);
+        }
+
+        [HttpPost, Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUser(User user)
+        {
+            if(ModelState.IsValid){
+                var person = _context.Persons?.First();
+                person?.UpdateUser(user);
+
+                _context.Persons?.Update(person);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Logoff");
+            }
+            return View(user);
+        }
 
         private bool ProjectExists(int id)
         {

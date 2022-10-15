@@ -24,5 +24,18 @@ namespace Portifolio.Models
         public string? UrlGithub { get; set; }
         public string? Username { get; set; }
         public string? Password { get; set; }
+
+
+        public void UpdatePerson(Profile profile){
+            this.Name = profile.Name;
+            this.About = profile.About;
+            this.UrlGithub = profile.UrlGithub;
+            this.UrlLinkedin = profile.UrlLinkedin;
+        }
+
+        public void UpdateUser(User user){
+            this.Username = user.Username;
+            this.Password = user.Password;
+        }
     }
 }

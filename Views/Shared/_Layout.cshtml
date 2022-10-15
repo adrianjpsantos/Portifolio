@@ -39,12 +39,6 @@
                         <i class="bi bi-file-code-fill"></i>
                     </a>
                 </li>
-                 <li class="nav-item p-3 rounded-end @(ViewBag.Title == "Projetos" ? "bg-primary" : "")">
-                    <a class="nav-link @(ViewBag.Title == "Projetos" ? "text-white" : "")" asp-controller="Admin" asp-action="Index" data-bs-placement="right"
-                        data-bs-toggle="tooltip" data-bs-title="Admin">
-                        <i class="bi bi-file-code"></i>
-                    </a>
-                </li>
             </ul>
         </aside>
 
@@ -83,7 +77,7 @@
     @await RenderSectionAsync("Modal", required: false)
     <footer class="footer position-fixed bottom-0">
         <div class="container bg-primary text-white p-2 ms-2 rounded-top shadow">
-            &copy; 2022 - Adrian José
+            &copy; 2022 - Adrian José, <a class="link-light" asp-action="Privacy" target="_blank">Privacidade</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

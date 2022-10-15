@@ -15,12 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\dotnet\Portifolio
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/dotnet/Portifolio/Views/Admin/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/dotnet/Portifolio/Views/Admin/EditProject.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFByb2plY3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/dotnet/Portifolio/Views/Admin/EditTechnology.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFRlY2hub2xvZ3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/Portifolio/Views/Admin/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/dotnet/Portifolio/Views/Admin/Home.cshtml]

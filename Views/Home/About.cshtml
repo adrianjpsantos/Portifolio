@@ -1,4 +1,4 @@
-@model Person
+@model Profile
 @{
     ViewData["Title"] = "Sobre Mim";
 }
@@ -8,20 +8,20 @@
         <h1 class="fade-in  text-primary text-uppercase">
             Sobre Mim
         </h1>
-        <p class="fade-in text-start fs-6">@Model.About
-        </p>
+        <div class="fade-in text-start fs-6" id="about">@Html.Raw(Model.About)
+        </div>
     </aside>
     <div class="col-lg-6">
         <h6 class="fade-in text-primary text-uppercase">
             Habilidades
         </h6>
-        <div class="d-flex flex-wrap">
+        <div class="row gap-2">
 
             @foreach (var technology in ViewBag.technologies)
             {
-                <div class="fade-in lang d-grid justify-content-center align-items-center">
-                    <i class="rounded shadow p-3 @technology.Icon colored" data-bs-toggle="tooltip"
-                    data-bs-title="@technology.Name"></i>
+                <div class="fade-in lang d-grid justify-content-center align-content-center p-3 bg-light rounded shadow" data-bs-toggle="tooltip"
+                    data-bs-title="@technology.Name">
+                    <i class="@technology.Icon colored"></i>
                 </div>
             }
 

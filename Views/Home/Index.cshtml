@@ -1,37 +1,99 @@
-﻿@{
+﻿@model Profile
+@{
     ViewData["Title"] = "Inicio";
 }
 
 <div class="w-100 h-100 d-flex align-items-center position-relative p-5">
     <div>
-        <h1 class="fade-in text-invert-color text-uppercase fw-bolder m-0 ">Adrian José</h1>
+        <h1 class="fade-in text-invert-color text-uppercase fw-bolder m-0 ">@Model.Name</h1>
         <span class="fade-in text-invert-color">Desenvolvedor Front end</span>
         <ul class="fade-in nav align-items-center p-0 gap-3 my-2">
-            <li class="nav-item m-0">
-                <a class="" href="https:\\github.com/adrianjpsantos" target="_blank">
+            <li class="nav-item">
+                <a class="" href="@Model.UrlGithub" target="_blank">
                     <i class="bi bi-github text-dark"></i>
                 </a>
             </li>
-            <li class="nav-item m-0  ">
-                <a href="https:\\github.com/adrianjpsantos" target="_blank">
+            <li class="nav-item">
+                <a href="@Model.UrlLinkedin" target="_blank">
                     <i class="bi bi-linkedin "></i>
                 </a>
             </li>
-            <li class="nav-item m-0">
-                <a href="#" class="badge text-bg-primary text-decoration-none" data-bs-toggle="collapse"
-                    data-bs-target="#vermais" aria-expanded="false" aria-controls="vermais">Ver mais +</a>
+            <li class="nav-item d-none">
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal-project">
+                    Mais
+                    <i class="bi bi-plus-lg"></i>
+                </button>
             </li>
         </ul>
-        <div class="mt-2">
-            <div class="collapse collapse-horizontal multi-collapse" id="vermais">
-                <div class="text-invert-color" style="width: 250px;">
-                    This is some placeholder content for a horizontal collapse. It's hidden by default and shown when
-                    triggered.
-                </div>
-            </div>
-        </div>
     </div>
 
 
     <img src="~/img/aj.png" class="fade-in position-absolute eu">
 </div>
+
+@section Modal{
+<div class="modal fade" id="modal-project" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="row justify-content-end m-2">
+                    <button type="button" class="btn-close fs-5" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="row justify-content-center">
+                    <a class="w-auto d-flex flex-column align-items-center link-dark text-decoration-none" href="@Model.UrlGithub" target="_blank" rel="noopener noreferrer">
+                        <div style="height: 50px; width:50px; border-radius: 100%;" class="row text-center align-items-center bg-secondary">
+                            <i class="bi bi-github text-light"></i>
+                        </div>
+                        <p class="mt-2 fw-semibold">Github</p>
+                    </a>
+
+                    <a class="w-auto d-flex flex-column align-items-center link-dark text-decoration-none" href="@Model.UrlLinkedin" target="_blank" rel="noopener noreferrer">
+                        <div style="height: 50px; width:50px; border-radius: 100%;" class="row text-center align-items-center bg-secondary">
+                            <i class="bi bi-linkedin text-light"></i>
+                        </div>
+                        <p class="mt-2 fw-semibold">Linkedin</p>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts{
+<script>
+    //Modal
+    const projectModal = document.getElementById('modal-project')
+    projectModal.addEventListener('show.bs.modal', event => {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+        // Extract info from data-bs-* attributes
+        const title = button.getAttribute('data-bs-title');
+        const urlSource = button.getAttribute('data-bs-url');
+        const moreId = "more-" + button.getAttribute('data-bs-id');
+        const more = document.getElementById(moreId);
+
+        let content = more.innerHTML;
+
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        const modalBody = projectModal.querySelector('.modal-body');
+        const buttonSource = projectModal.querySelector('.btn-source');
+
+        if (urlSource != '') {
+            buttonSource.href = urlSource;
+        }
+        else {
+            buttonSource.classList.add('d-none');
+        }
+
+        modalBody.innerHTML = content;
+    });
+</script>
+}
