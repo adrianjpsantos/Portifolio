@@ -22,8 +22,9 @@ namespace Portifolio.Models
 
         public string? UrlLinkedin { get; set; }
         public string? UrlGithub { get; set; }
-        public string? Username { get; set; }
-        public string? Password { get; set; }
+
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
 
 
         public void UpdatePerson(Profile profile){

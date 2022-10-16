@@ -18,8 +18,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        if (_context.Persons == null)
+            return NotFound();
+
         var profile = new Profile();
-        profile.SetPerson(_context.Persons?.First());
+        profile.SetPerson(_context.Persons.First());
         return View(profile);
     }
 
@@ -30,8 +33,12 @@ public class HomeController : Controller
 
     public IActionResult About()
     {
+        if (_context.Persons == null)
+            return NotFound();
+        
+
         var profile = new Profile();
-        profile.SetPerson(_context.Persons?.First());
+        profile.SetPerson(_context.Persons.First());
 
         ViewData["Technologies"] = _context.Technologies?.ToList();
         return View(profile);

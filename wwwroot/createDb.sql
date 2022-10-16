@@ -6,6 +6,7 @@ create table if not exists Person(
     About varchar(1000) not null,
     UrlLinkedin varchar(60),
     UrlGithub varchar(60),
+    EmailAddress varchar(60),
     Username varchar(30) not null,
     Password varchar(30) not null
 );

@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/c54fd2e3-1054-492e-9db2-12a918b98c8f/AppServices/subscriptions/c54fd2e3-1054-492e-9db2-12a918b98c8f/resourceGroups/Portifolio/providers/Microsoft.Web/sites/adrianjose",
+  "appService.deploySubpath": "bin\\Publish"
+}

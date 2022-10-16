@@ -26,21 +26,27 @@ namespace Portifolio.Controllers
         [HttpGet, AllowAnonymous]
         public IActionResult Index()
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (HttpContext.User.Identity != null)
             {
-                return RedirectToAction("Home");
+                if (HttpContext.User.Identity.IsAuthenticated)
+                    return RedirectToAction("Home");
             }
+
             return View();
+
         }
 
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Login(User user)
         {
-            var person = _context.Persons?.Where(p => p.Username.ToUpper() == user.Username.ToUpper() && p.Password == user.Password).First();
+            if (_context.Persons == null)
+                return NotFound();
+
+            var person = _context.Persons.Where(p => p.Username.ToUpper() == user.Username.ToUpper() && p.Password == user.Password).FirstOrDefault();
             if (person == null)
             {
                 TempData["Erro Login"] = "Usuario e/ou senha estão incorretos!";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Admin", user);
             }
 
 
@@ -152,7 +158,7 @@ namespace Portifolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditTechnology(int id, [Bind("IdTechnology,Name,Icon")] Technology technology)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _context.Technologies != null)
             {
                 _context.Technologies.Update(technology);
                 await _context.SaveChangesAsync();
@@ -186,7 +192,7 @@ namespace Portifolio.Controllers
         public async Task<IActionResult> EditProject(int id, [Bind("IdProject,Title,SubTitle,Description,Thumbnail,Finish,UrlSource,UrlDemo,SelectTechnologies")] Project project, IFormFile file, List<string> SelectTechnologies)
         {
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _context.Projects != null)
             {
                 try
                 {
@@ -211,10 +217,13 @@ namespace Portifolio.Controllers
                         }
                         project.Thumbnail = @"\img\projects\" + fileName;
                     }
-                    project.Technologies = _context.ProjectTechnologies.Where(pt => pt.IdProject == project.IdProject).ToList();
-                    _context.Projects.Update(project);
-                    _context.RemoveRange(project.Technologies);
-                    await _context.SaveChangesAsync();
+                    if (_context.ProjectTechnologies != null)
+                    {
+                        project.Technologies = _context.ProjectTechnologies.Where(pt => pt.IdProject == project.IdProject).ToList();
+                        _context.Projects.Update(project);
+                        _context.RemoveRange(project.Technologies);
+                        await _context.SaveChangesAsync();
+                    }
 
                     project.Technologies = new List<ProjectTechnology>();
                     foreach (var item in SelectTechnologies)
@@ -255,13 +264,15 @@ namespace Portifolio.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Projects'  is null.");
             }
             var project = await _context.Projects.FindAsync(id);
-            if (project != null)
+
+            if (project != null && _context.ProjectTechnologies != null)
             {
                 project.Technologies = _context.ProjectTechnologies.Where(pt => pt.IdProject == project.IdProject).ToList();
                 _context.RemoveRange(project.Technologies);
                 _context.Projects.Remove(project);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Home));
 
         }
@@ -274,26 +285,25 @@ namespace Portifolio.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Technologies'  is null.");
             }
             var technology = await _context.Technologies.FindAsync(id);
-            if (technology != null)
+            if (technology != null && _context.ProjectTechnologies != null)
             {
                 technology.ProjectsWithTechnology = _context.ProjectTechnologies.Where(pt => pt.IdProject == technology.IdTechnology).ToList();
                 _context.RemoveRange(technology.ProjectsWithTechnology);
                 _context.Technologies.Remove(technology);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Home));
 
+            return RedirectToAction(nameof(Home));
         }
 
 
         public IActionResult EditProfile()
         {
-            var person = _context.Persons?.First();
-            if (person == null)
+            if (_context.Persons == null)
                 return NotFound();
 
             var profile = new Profile();
-            profile.SetPerson(person);
+            profile.SetPerson(_context.Persons.First());
 
             return View(profile);
         }
@@ -302,17 +312,17 @@ namespace Portifolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProfile(Profile profile)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _context.Persons != null)
             {
-                var person = _context.Persons?.First();
-                if (person.IdPerson == profile.Id)
+                var person = _context.Persons.FirstOrDefault();
+
+                if (person != null && person.IdPerson == profile.Id)
                 {
                     person.UpdatePerson(profile);
+                    _context.Persons.Update(person);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Home));
                 }
-
-                _context.Persons?.Update(person);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Home));
             }
 
             return View(profile);
@@ -321,9 +331,13 @@ namespace Portifolio.Controllers
         [HttpGet, Authorize]
         public IActionResult EditUser()
         {
+            if (_context.Persons == null)
+                return NotFound();
 
+            var person = _context.Persons.First();
             var user = new User();
-            user.SetPerson(_context.Persons?.First());
+            user.SetPerson(person);
+
             return View(user);
         }
 
@@ -331,13 +345,17 @@ namespace Portifolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditUser(User user)
         {
-            if(ModelState.IsValid){
-                var person = _context.Persons?.First();
-                person?.UpdateUser(user);
+            if (ModelState.IsValid && _context.Persons != null)
+            {
+                var person = _context.Persons.First();
 
-                _context.Persons?.Update(person);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Logoff");
+                if (person != null && person.IdPerson == user.Id)
+                {
+                    person.UpdateUser(user);
+                    _context.Persons.Update(person);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Logoff");
+                }
             }
             return View(user);
         }

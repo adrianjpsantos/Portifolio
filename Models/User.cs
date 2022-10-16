@@ -9,16 +9,17 @@ namespace Portifolio.Models
         [Display(Name = "Nome de Usuário")]
         [Required(ErrorMessage = "Informe o nome do usuário")]
         [StringLength(30, ErrorMessage = "O Nome de usuário deve possuir no máximo 30 caracteres")]
-        public string? Username { get; set; }
+        public string Username { get; set; } = string.Empty;
 
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "Informe a senha do usuário")]
         [StringLength(30, ErrorMessage = "A senha deve possuir no máximo 30 caracteres")]
         [DataType(DataType.Password)]
-        public string? Password { get; set; }
+        public string Password { get; set; } = string.Empty;
 
         public void SetPerson(Person person)
         {
+            this.Id = person.IdPerson;
             this.Username = person.Username;
             this.Password = person.Password;
         }
