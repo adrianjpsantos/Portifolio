@@ -85,7 +85,7 @@ namespace Portifolio.Controllers
         {
             ViewData["Technologies"] = new SelectList(_context.Technologies, "IdTechnology", "Name");
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _context.Projects != null)
             {
                 if (file != null)
                 {
@@ -102,7 +102,7 @@ namespace Portifolio.Controllers
                 project.Technologies = new List<ProjectTechnology>();
                 foreach (var item in SelectTechnologies)
                 {
-                    _context.Add(
+                    project.Technologies.Add(
                         new ProjectTechnology
                         {
                             IdProject = project.IdProject,

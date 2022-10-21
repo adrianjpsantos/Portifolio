@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TOCeN53bxk9jrKeotN/xDM7nxsTHG4duPhuw2cG6eZg=",
+  "Hash": "drnmW+slWceAIQ3ZmK6p9wmKccjcaF3VmYnAjlwjooM=",
   "Source": "Portifolio",
   "BasePath": "_content/Portifolio",
   "Mode": "Default",
@@ -391,6 +391,40 @@
       "OriginalItemSpec": "wwwroot\\img\\profile.png"
     },
     {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\img\\projects\\fgdfgdf.jpeg",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "img/projects/fgdfgdf.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\projects\\fgdfgdf.jpeg"
+    },
+    {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\img\\projects\\Frida em HD.jpeg",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "img/projects/Frida em HD.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\projects\\Frida em HD.jpeg"
+    },
+    {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\img\\projects\\Instadrian.png",
       "SourceId": "Portifolio",
       "SourceType": "Discovered",
@@ -406,6 +440,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\projects\\Instadrian.png"
+    },
+    {
+      "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\img\\projects\\weqweqw.png",
+      "SourceId": "Portifolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotnet\\Portifolio\\wwwroot\\",
+      "BasePath": "_content/Portifolio",
+      "RelativePath": "img/projects/weqweqw.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\projects\\weqweqw.png"
     },
     {
       "Identity": "D:\\dotnet\\Portifolio\\wwwroot\\insertDb.sql",

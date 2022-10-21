@@ -13,64 +13,67 @@
         <div class="row">
             @foreach (var project in Model)
             {
-                <article class="col-lg-4 col-sm-6 p-0 border-0 shadow rounded">
-                    <div class="position-relative mw-100">
+                <div class="col-lg-4 col-sm-6 border-0 rounded p-2" style="max-height: 300px;">
+                    <article class="border-0 rounded shadow h-100 w-100">
+                        <div class="position-relative mw-100 h-100">
+                            <div class="card-image h-100 w-100">
+                                <img class="card-img w-100 h-100 rounded" src="@project.Thumbnail" alt="Project Image">
+                            </div>
+                            <div class="d-grid position-absolute bottom-0 h-100 w-100 align-content-end"
+                            onmouseenter="showBasicInfoProject(this,true)"
+                            onmouseleave="showBasicInfoProject(this,false)">
 
-                        <div class="card-image">
-                            <img class="img-fluid rounded" src="@project.Thumbnail" alt="Project Image">
-                        </div>
-                        <div class="d-grid position-absolute bottom-0 h-100 w-100 align-content-end"
-                        onmouseenter="showBasicInfoProject(this,true)" onmouseleave="showBasicInfoProject(this,false)">
+                                <div class="text-dark bg-light border-0 p-2 w-100 mh-50 rounded-bottom swing-out-bottom-fwd "
+                                style="backdrop-filter: blur(5px); --bs-bg-opacity: .8;">
 
-                            <div class="text-dark bg-light border-0 p-2 w-100 mh-50 rounded-bottom swing-out-bottom-fwd "
-                            style="backdrop-filter: blur(5px); --bs-bg-opacity: .8;">
-
-                                <div class="row">
-                                    <div class="col-10 text-start">
-                                        <p class="fs-4 m-0 fw-regular">@project.Title</p>
+                                    <div class="row">
+                                        <div class="col-10 text-start">
+                                            <p class="fs-4 m-0 fw-regular">@project.Title</p>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <i
+                                            class="fs-4 bi @(project.Finish ? "bi-check-square-fill text-success" : "bi-exclamation-square-fill text-warning") ">
+                                            </i>
+                                        </div>
                                     </div>
-                                    <div class="col-2 text-end">
-                                        <i
-                                        class="fs-4 bi @(project.Finish ? "bi-check-square-fill text-success" : "bi-exclamation-square-fill text-warning") ">
-                                        </i>
+                                    <div class="row mb-2">
+                                        <p class="card-text fw-light">@project.SubTitle</p>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
-                                    <p class="card-text fw-light">@project.SubTitle</p>
-                                </div>
 
-                                <div class="row m-0 gap-1">
+                                    <div class="row m-0 gap-1">
 
-                                    <button type="button" class="col-3 btn btn-sm btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#modal-project" data-bs-title="@project.Title"
-                                    data-bs-id="@project.IdProject"
-                                    data-bs-url="@(project.UrlSource != null ? @project.UrlSource : "")">
-                                        Mais
-                                        <i class="bi bi-plus-lg"></i>
-                                    </button>
-
-                                    @if (project.UrlDemo != null)
-                                    {
-                                        <button type="button" class="col-3 btn btn-sm btn-outline-primary">
-                                            Demo
-                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        <button type="button" class="col-3 btn btn-sm btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modal-project" data-bs-title="@project.Title"
+                                        data-bs-id="@project.IdProject"
+                                        data-bs-url="@(project.UrlSource != null ? @project.UrlSource : "")">
+                                            Mais
+                                            <i class="bi bi-plus-lg"></i>
                                         </button>
-                                    }
-                                </div>
 
-                                <div class="row mw-100 d-none" id="more-@project.IdProject">
-                                    <p class="fs-5 text-center text-uppercase fw-bold">Tecnologias Usadas</p>
-                                    <div class="d-flex justify-content-center mb-5 gap-3">
-                                        @foreach (var projectTechnology in project.Technologies)
+                                        @if (project.UrlDemo != null)
                                         {
-                                            <i class="@projectTechnology.Technology?.Icon Colored fs-1 shadow p-3 rounded bg-dark"></i>
+                                            <button type="button" class="col-3 btn btn-sm btn-outline-primary">
+                                                Demo
+                                                <i class="bi bi-box-arrow-up-right"></i>
+                                            </button>
                                         }
                                     </div>
-                                    @Html.Raw(project.Description)
+
+                                    <div class="row mw-100 d-none" id="more-@project.IdProject">
+                                        <p class="fs-5 text-center text-uppercase fw-bold">Tecnologias Usadas</p>
+                                        <div class="d-flex justify-content-center mb-5 gap-3">
+                                            @foreach (var projectTechnology in project.Technologies)
+                                            {
+                                                <i
+                                            class="@projectTechnology.Technology?.Icon Colored fs-1 shadow p-3 rounded bg-dark"></i>
+                                            }
+                                        </div>
+                                        @Html.Raw(project.Description)
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
             }
         </div>
     </div>
@@ -81,7 +84,7 @@
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-body">
-
+                
             </div>
             <div class="modal-footer ">
                 <a type="button" class="btn btn-dark btn-source" aria-label="source">Source Code <i
